@@ -4,6 +4,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.example.demo.model.Product;
 
-public interface PRepository extends PagingAndSortingRepository<Product, Integer> {
+public interface PPagRepository extends PagingAndSortingRepository<Product, Integer> {
 
 }

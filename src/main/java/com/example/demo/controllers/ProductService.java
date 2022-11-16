@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,20 +10,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Product;
-import com.example.demo.repo.PRepository;
-import com.example.demo.repo.PagService;
+import com.example.demo.repo.PPagRepository;
+import com.example.demo.repo.PPagService;
+
 import com.example.demo.repo.Repository;
 
 @Service
-public class ProductService implements PagService {
+public class ProductService implements PPagService {
 	
 	
 	@Autowired
 	private Repository r2;
 	
-	
 	@Autowired
-	 private PRepository r5;
+	private PPagRepository y1;
 	
 	public List<Product> listAll()
 	{
@@ -49,15 +50,23 @@ public class ProductService implements PagService {
 	r2.save(p1);  
 	}
 
-	@Override
-	public List<Product> findPaginated(int pageNo, int pageSize) {
-		 Pageable paging = PageRequest.of(pageNo, pageSize);
-	        Page<Product> pagedResult = r5.findAll(paging);
-
-	        return pagedResult.toList();
+	public List<Product> getAllEmployees(Integer pageNo, Integer pageSize)
+    {
+        Pageable paging = PageRequest.of(pageNo, pageSize);
+ 
+        Page<Product> pagedResult = y1.findAll(paging);
+         
+        if(pagedResult.hasContent()) {
+            return pagedResult.getContent();
+        } else {
+            return new ArrayList<Product>();
+        }
+    }
 	
 		
-	}  
+	
+
+	
 
 	
 	

@@ -35,23 +35,14 @@ public class CategoryController {
 	
 	 @GetMapping("/categories")
 	    public ResponseEntity<List<Category>> getAllEmployees(
-	                        @RequestParam(defaultValue = "1") Integer pageNo, 
-	                        @RequestParam(defaultValue = "2") Integer pageSize)
+	                        @RequestParam(defaultValue = "1") Integer page, 
+	                        @RequestParam(defaultValue = "5") Integer pageSize)
 	               
 	    {
-	        List<Category> list = y2.getAllEmployees(pageNo, pageSize);
+	        List<Category> list = y2.getAllEmployees(page, pageSize);
 	 
 	        return new ResponseEntity<List<Category>>(list, new HttpHeaders(), HttpStatus.OK); 
 	    }
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	 
 	@GetMapping("/categories/{di}")

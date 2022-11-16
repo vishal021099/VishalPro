@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.example.demo.model.Product;
 
-public interface PagService {
+public interface PPagService {
 
-	List<Product> findPaginated(int pageNo, int pageSize);
+	List<Product> getAllEmployees(Integer pageNo, Integer pageSize);
 }

@@ -11,11 +11,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Category;
-import com.example.demo.model.Product;
+
 import com.example.demo.repo.CPagRepository;
 import com.example.demo.repo.CPagService;
 import com.example.demo.repo.CRepository;
-import com.example.demo.repo.PagService;
+
 
 
 @Service
